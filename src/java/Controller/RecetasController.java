@@ -103,22 +103,22 @@ public class RecetasController extends HttpServlet {
 
     private void nuevo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Recetas/register.jsp");
-        List<Usuario> usuarios = usuarioDAO.listarArticulos();
+        List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
         dispatcher.forward(request, response);
     }
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Recetas/index.jsp");
-        List<Receta> listaArticulos = recetaDAO.listarArticulos();
-        request.setAttribute("lista", listaArticulos);
+        List<Receta> listarecetas = recetaDAO.listaRecetas();
+        request.setAttribute("lista", listarecetas);
         dispatcher.forward(request, response);
     }
 
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         Receta receta = recetaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("re", receta);
-        List<Usuario> usuarios = usuarioDAO.listarArticulos();
+        List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Recetas/editar.jsp");
         dispatcher.forward(request, response);

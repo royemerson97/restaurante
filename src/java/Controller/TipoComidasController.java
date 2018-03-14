@@ -109,8 +109,8 @@ public class TipoComidasController extends HttpServlet {
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/TipoComidas/index.jsp");
-        List<Tipo_Comida> listaArticulos = tipoComidaDAO.listarArticulos();
-        request.setAttribute("lista", listaArticulos);
+        List<Tipo_Comida> listatiposcomidas = tipoComidaDAO.listaTiposComidas();
+        request.setAttribute("lista", listatiposcomidas);
         dispatcher.forward(request, response);
         
     }

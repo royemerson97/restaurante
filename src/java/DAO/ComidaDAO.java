@@ -43,8 +43,8 @@ public class ComidaDAO {
         return rowInserted;
     }
 
-    // listar todos los productos
-    public List<Comida> listarArticulos() throws SQLException {
+    // listar todas las comidas
+    public List<Comida> listaComidas() throws SQLException {
 
         List<Comida> listaComida = new ArrayList<Comida>();
         String sql = "SELECT * FROM comidas";

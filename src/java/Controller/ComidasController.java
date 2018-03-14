@@ -94,7 +94,7 @@ public class ComidasController extends HttpServlet {
     }
     
      private void index(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        //mostrar(request, response);
+       
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Comidas/index.jsp");
         dispatcher.forward(request, response);
     }
@@ -108,22 +108,22 @@ public class ComidasController extends HttpServlet {
 
     private void nuevo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Comidas/register.jsp");
-        List<Tipo_Comida> tipos = tipoComidaDAO.listarArticulos();
+        List<Tipo_Comida> tipos = tipoComidaDAO.listaTiposComidas();
         request.setAttribute("tipos", tipos);
         dispatcher.forward(request, response);
     }
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Comidas/index.jsp");
-        List<Comida> listaArticulos = comidaDAO.listarArticulos();
-        request.setAttribute("lista", listaArticulos);
+        List<Comida> listaComidas = comidaDAO.listaComidas();
+        request.setAttribute("lista", listaComidas);
         dispatcher.forward(request, response);
     }
 
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         Comida comida = comidaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("comida", comida);
-        List<Tipo_Comida> tipos = tipoComidaDAO.listarArticulos();
+        List<Tipo_Comida> tipos = tipoComidaDAO.listaTiposComidas();
         request.setAttribute("tipos", tipos);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Comidas/editar.jsp");
         dispatcher.forward(request, response);

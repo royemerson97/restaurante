@@ -28,7 +28,7 @@ public class RecetaDAO {
         System.out.println(jdbcURL);
         con = new Conexion(jdbcURL, jdbcUsername, jdbcPassword);
     }
-    
+    //insertar
      public boolean insertar(Receta receta) throws SQLException {
         String sql = "INSERT INTO recetas (id_receta, titulo, id_usuario, ingredientes, preparacion, publicada) VALUES (null, ?,?,?,?,?)";
         con.conectar();
@@ -45,8 +45,8 @@ public class RecetaDAO {
         return rowInserted;
     }
 
-    // listar todos los productos
-    public List<Receta> listarArticulos() throws SQLException {
+    // listar todoas recetas
+    public List<Receta> listaRecetas() throws SQLException {
 
         List<Receta> listaReceta = new ArrayList<Receta>();
         String sql = "SELECT * FROM recetas";

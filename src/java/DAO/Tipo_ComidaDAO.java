@@ -28,7 +28,7 @@ public class Tipo_ComidaDAO {
         System.out.println(jdbcURL);
         con = new Conexion(jdbcURL, jdbcUsername, jdbcPassword);
     }
-    
+    //insertar
     public boolean insertar(Tipo_Comida comida) throws SQLException {
         String sql = "INSERT INTO tipo_comida (id_tipo_comida,nombre ) VALUES (null,?)";
         con.conectar();
@@ -42,7 +42,7 @@ public class Tipo_ComidaDAO {
     }
 
     // listar todos los productos
-    public List<Tipo_Comida> listarArticulos() throws SQLException {
+    public List<Tipo_Comida> listaTiposComidas() throws SQLException {
 
         List<Tipo_Comida> listaComida = new ArrayList<Tipo_Comida>();
         String sql = "SELECT * FROM tipo_comida";

@@ -46,8 +46,8 @@ public class UsuarioDAO {
         return rowInserted;
     }
 
-    // listar todos los productos
-    public List<Usuario> listarArticulos() throws SQLException {
+    // listar todos los usuarios
+    public List<Usuario> listarUsuarios() throws SQLException {
 
         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
         String sql = "SELECT * FROM usuarios";

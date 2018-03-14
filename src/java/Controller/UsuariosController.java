@@ -111,8 +111,8 @@ public class UsuariosController extends HttpServlet {
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Usuarios/index.jsp");
-        List<Usuario> listaArticulos = usuarioDAO.listarArticulos();
-        request.setAttribute("lista", listaArticulos);
+        List<Usuario> listaUsuarios = usuarioDAO.listarUsuarios();
+        request.setAttribute("lista", listaUsuarios);
         dispatcher.forward(request, response);
     }
 

@@ -107,22 +107,22 @@ public class SugerenciasController extends HttpServlet {
 
     private void nuevo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Sugerencias/register.jsp");
-        List<Usuario> usuarios = usuarioDAO.listarArticulos();
+        List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
         dispatcher.forward(request, response);
     }
 
     private void mostrar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Sugerencias/index.jsp");
-        List<Sugerencia> listaArticulos = sugerenciaDAO.listarArticulos();
-        request.setAttribute("lista", listaArticulos);
+        List<Sugerencia> listaSugerencias = sugerenciaDAO.listaSugerencias();
+        request.setAttribute("lista", listaSugerencias);
         dispatcher.forward(request, response);
     }
 
     private void showEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         Sugerencia sugerencia = sugerenciaDAO.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("su", sugerencia);
-        List<Usuario> usuarios = usuarioDAO.listarArticulos();
+        List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Vistas/Sugerencias/editar.jsp");
         dispatcher.forward(request, response);
